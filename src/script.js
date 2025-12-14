@@ -33,10 +33,16 @@ btnSim.addEventListener('click', () => {
   audioPlayer.volume = 1
   try { audioPlayer.play() } catch(e) {}
 
-setTimeout(() => {
-  const link = "https://github.com/ymarinho2025"
-  window.open(link, '_blank')
-}, 5000)
+  setTimeout(() => {
+    const link = "https://github.com/ymarinho2025"
+    const novaJanela = window.open('', '_blank', 'noopener')
+
+    if (novaJanela) {
+      novaJanela.location.href = link
+    } else {
+      window.location.href = link
+    }
+  }, 5000)
 })
 
 document.body.addEventListener('click', () => {
